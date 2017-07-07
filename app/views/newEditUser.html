@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">{{!vm.user.id ? 'Create new user' : 'Edit user'}}</h3>
+</div>
+<div class="modal-body">
+  <form name="userForm" role="form">
+          <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
+              <label for="firstName">First name</label>
+              <input type="text" name="firstName" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
+          </div>
+          <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
+              <label for="lastName">Last name</label>
+              <input type="text" name="lastName" id="lastName" class="form-control" ng-model="vm.user.lastName" required />
+          </div>
+          <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+              <label for="email">E-Mail</label>
+              <input type="email" name="email" id="email" class="form-control" ng-model="vm.user.email" required />
+          </div>
+
+          <label for="dateOfBirth">Date of birth</label>
+          <div class="input-group" ng-class="{ 'has-error' : userForm.dateOfBirth.$invalid && !userForm.dateOfBirth.$pristine }">
+            <input type="text" class="form-control" uib-datepicker-popup
+                  ng-model="vm.dateOfBirth" name="dateOfBirth" id="dateOfBirth" is-open="isDatePickerOpened"
+                  ng-required="true" show-button-bar="false" />
+            <span class="input-group-btn">
+              <button type="button" class="btn btn-default" ng-click="isDatePickerOpened = true">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </button>
+            </span>
+          </div>
+          <div class="modal-footer">
+              <button class="btn btn-primary" type="submit" ng-click="vm.ok()" ng-disabled="userForm.$invalid">
+                {{!vm.user.id ? 'Create' : 'Edit'}}
+              </button>
+              <button class="btn btn-default" type="button" ng-click="vm.cancel()">Cancel</button>
+          </div>
+    </form>
+</div modal-body>
