@@ -4,7 +4,7 @@ angular.module('userManagementApp')
   .controller('NewEditUser', function ($scope, $uibModalInstance, $filter, uibDateParser, user) {
     var vm = this;
 
-    vm.user = user ? user : {
+    vm.user = user ? angular.copy(user) : {
       firstName: '',
       lastName:'',
       email:'',
