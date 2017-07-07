@@ -3,21 +3,21 @@
 </div>
 <div class="modal-body">
   <form name="userForm" role="form">
-          <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && !userForm.firstName.$pristine }">
+          <div class="form-group" ng-class="{ 'has-error' : userForm.firstName.$invalid && (!userForm.firstName.$pristine || vm.user.id) }">
               <label for="firstName">First name</label>
               <input type="text" name="firstName" id="firstName" class="form-control" ng-model="vm.user.firstName" required />
           </div>
-          <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && !userForm.lastName.$pristine }">
+          <div class="form-group" ng-class="{ 'has-error' : userForm.lastName.$invalid && (!userForm.lastName.$pristine || vm.user.id) }">
               <label for="lastName">Last name</label>
               <input type="text" name="lastName" id="lastName" class="form-control" ng-model="vm.user.lastName" required />
           </div>
-          <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+          <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && (!userForm.email.$pristine || vm.user.id) }">
               <label for="email">E-Mail</label>
               <input type="email" name="email" id="email" class="form-control" ng-model="vm.user.email" required />
           </div>
 
           <label for="dateOfBirth">Date of birth</label>
-          <div class="input-group" ng-class="{ 'has-error' : userForm.dateOfBirth.$invalid && !userForm.dateOfBirth.$pristine }">
+          <div class="input-group" ng-class="{ 'has-error' : userForm.dateOfBirth.$invalid && (!userForm.dateOfBirth.$pristine || vm.user.id) }">
             <input type="text" class="form-control" uib-datepicker-popup
                   ng-model="vm.dateOfBirth" name="dateOfBirth" id="dateOfBirth" is-open="isDatePickerOpened"
                   ng-required="true" show-button-bar="false" />
