@@ -20,4 +20,6 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  }).constant('config', {
+    apiUrl: 'http://localhost:8080'
   });

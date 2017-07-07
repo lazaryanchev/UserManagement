@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('userManagementApp').
-  factory('User', function($resource) {
+  factory('User', function($resource, config) {
 
-      return $resource('http://localhost:8080/users/:id',{},{
+      return $resource(config.apiUrl + '/users/:id',{},{
         query:{
           isArray: false
         },

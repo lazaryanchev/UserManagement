@@ -26,9 +26,9 @@ describe('User', function() {
     jasmine.addCustomEqualityTester(angular.equals);
   });
 
-  beforeEach(inject(function(_$httpBackend_, _User_) {
+  beforeEach(inject(function(_$httpBackend_, _User_, config) {
     $httpBackend = _$httpBackend_;
-    $httpBackend.expectGET('http://localhost:8080/users').respond({content: usersData});
+    $httpBackend.expectGET(config.apiUrl+ '/users').respond({content: usersData});
 
     User = _User_;
   }));

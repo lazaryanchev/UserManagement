@@ -71,6 +71,7 @@ angular.module('userManagementApp')
         vm.gridOptions.totalItems = users.totalElements;
         vm.gridOptions.data = users.content;
       }, function(error){
+        vm.alerts.push({type: 'danger', msg: 'Failed to load users from the server'});
         console.log(JSON.stringify(error));
       });
     }
@@ -96,6 +97,7 @@ angular.module('userManagementApp')
             loadGridPage();
             vm.alerts.push({type: 'success', msg: 'User created successfully'});
           }, function(error){
+            vm.alerts.push({type: 'danger', msg: 'Failed to create user on the server'});
             console.log(JSON.stringify(error));
           });
         }else{
@@ -103,6 +105,7 @@ angular.module('userManagementApp')
             loadGridPage();
             vm.alerts.push({type: 'success', msg: 'User edited successfully'});
           }, function(error){
+            vm.alerts.push({type: 'danger', msg: 'Failed to update user on the server'});
             console.log(JSON.stringify(error));
           });
         }
@@ -115,6 +118,7 @@ angular.module('userManagementApp')
         loadGridPage();
         vm.alerts.push({type: 'success', msg: 'User deleted successfully'});
       }, function(error){
+        vm.alerts.push({type: 'danger', msg: 'Failed to deleted user on the server'});
         console.log(JSON.stringify(error));
       });
     }
